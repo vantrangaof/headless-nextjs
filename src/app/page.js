@@ -1,4 +1,5 @@
 'use client'
+import { storefront } from '../../utils/index.js'
 
 const staticProducts = [
   {
@@ -52,7 +53,9 @@ const navigation = [
   { name: 'Company', href: '#' },
 ]
 
-export default function Example() {
+export default function Homepage({products}) {
+  console.log(products)
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
@@ -230,3 +233,44 @@ export default function Example() {
     </main>
   )
 }
+
+export async function getInitialProps() {
+  const data = await storefront(productsQuery) // our api returns data nested in the object so we need to use deconstructuring {data}
+  return {
+    props: {
+      products: data.products
+    }
+  }
+}
+
+
+// gql helps to pretify the GraphQL queries
+
+const gql = String.raw
+
+const productsQuery = gql`
+  query Products {
+    products(first: 3) {
+      edges {
+        node {
+          title
+          handle
+          tags
+          priceRangeV2 {
+            minVariantPrice {
+              amount
+            }
+          }
+          images(first:1) {
+            edges {
+              node {
+                url
+                altText
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
