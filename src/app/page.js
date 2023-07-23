@@ -19,6 +19,24 @@ const staticProducts = [
     price: '$65',
     color: 'White',
   },
+  {
+    id: 3,
+    name: 'Xiao Mi Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg',
+    imageAlt: "Xiao Mi Tee.",
+    price: '$65',
+    color: 'White',
+  },
+  {
+    id: 4,
+    name: 'Xiao Mi Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-04.jpg',
+    imageAlt: "Xiao Mi Tee.",
+    price: '$65',
+    color: 'White',
+  },
   // More products...
 ]
 
@@ -151,7 +169,7 @@ export default function Example() {
               Welcome To XiaoMi Shop
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Find your best cat delicacies here
+              Find your best Tee designs here
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
@@ -181,7 +199,7 @@ export default function Example() {
       </div>
     </div>
     <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900">Our products</h2>
 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {staticProducts.map((product) => (
